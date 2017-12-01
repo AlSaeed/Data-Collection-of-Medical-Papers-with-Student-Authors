@@ -1,8 +1,12 @@
 # Data Collection of Medical Papers with Student Authors
 
-This project has the aim of collecting a dataset of medical journal papers that have at least one student author and was published during or after 2012. Almost all the steps of collecting this dataset are automated and this repository contains the source code. The code utilizes parsing XML files, crawling the web, and csv & xlsx files manipulation in the process of collecting the data.
+**Objective:** Collecting a dataset of medical journal papers that have at least one student author and was published during the period 01/01/2012 to 31/10/2017.
 
-## Overview:
+**Aim:** To describe and analyze the progress of biomedical research conducted by medical students during the period 01/01/2012 to 31/10/2017.
+
+Almost all the steps of collecting this dataset are automated and this repository contains the source code. The code utilizes parsing XML files, crawling the web, and csv & xlsx files manipulation in the process of collecting the data.
+
+## Overview of Collection Process:
 
 The process of collecting the data is divided into the following steps:
 
@@ -44,4 +48,4 @@ The following python dependencies are required:
 
 ## License:
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
