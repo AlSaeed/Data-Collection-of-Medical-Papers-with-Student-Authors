@@ -18,6 +18,7 @@ JOURNAL_IF_KEY = u"Journal Impact Factor"
 JOURNAL_NIF_KEY = u"Impact Factor Without Journal Self Cites"
 JOURNAL_5IF_KEY = u"Five Year Impact Factor"
 ARTICLE_TITLE_KEY = u"Article Title"
+PAPER_COUNTRY_KEY = u"Paper Country"
 TIMES_CITED_KEY = u"Times Cited"
 GRANT_LIST_KEY = u"Grants"
 KEYWORD_LIST_KEY = u"Keywords"
@@ -31,7 +32,7 @@ FIRST_AUTHOR_STUDENT_KEY = u"Is 1st Author a Student?"
 SOLELY_BY_STUDENTS=u"Solely by students?"
 AUTHOR_STUDENT_KEY = u"Is Student?"
 AUTHOR_NAME_KEY = u"Author Name"
-AUTHOR_AFFILIATION_KEY = u"Author Affiliation"
+AUTHOR_AFFILIATION_KEY = u"Author Affiliation(s)"
 
 EXTENDED_HEADERS = [
     N_KEY,
@@ -45,6 +46,7 @@ EXTENDED_HEADERS = [
     JOURNAL_NIF_KEY,
     JOURNAL_5IF_KEY,
     ARTICLE_TITLE_KEY,
+    PAPER_COUNTRY_KEY,
     TIMES_CITED_KEY,
     GRANT_LIST_KEY,
     KEYWORD_LIST_KEY,

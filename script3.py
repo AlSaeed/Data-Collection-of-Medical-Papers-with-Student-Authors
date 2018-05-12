@@ -14,6 +14,7 @@ JOURNAL_IF_KEY = u"Journal Impact Factor"
 JOURNAL_NIF_KEY = u"Impact Factor Without Journal Self Cites"
 JOURNAL_5IF_KEY = u"Five Year Impact Factor"
 ARTICLE_TITLE_KEY = u"Article Title"
+PAPER_COUNTRY_KEY = u"Paper Country"
 TIMES_CITED_KEY = u"Times Cited"
 GRANT_LIST_KEY = u"Grants"
 KEYWORD_LIST_KEY = u"Keywords"
@@ -27,7 +28,7 @@ FIRST_AUTHOR_STUDENT_KEY = u"Is 1st Author a Student?"
 SOLELY_BY_STUDENTS=u"Solely by students?"
 AUTHOR_STUDENT_KEY = u"Is Student?"
 AUTHOR_NAME_KEY = u"Author Name"
-AUTHOR_AFFILIATION_KEY = u"Author Affiliation"
+AUTHOR_AFFILIATION_KEY = u"Author Affiliation(s)"
 
 EXTENDED_HEADERS = [
     N_KEY,
@@ -41,6 +42,7 @@ EXTENDED_HEADERS = [
     JOURNAL_5IF_KEY,
     PUB_DATE_KEY,
     ARTICLE_TITLE_KEY,
+    PAPER_COUNTRY_KEY,
     TIMES_CITED_KEY,
     GRANT_LIST_KEY,
     KEYWORD_LIST_KEY,
@@ -108,16 +110,16 @@ floatingFormat.set_num_format('0.000')
 floatingFormat.set_align('left')
 floatingFormat.set_align('vcenter')
 
-included.set_column('A:U',None,generalFormat)
-included.set_column('S:S',None,percentageFormat)
+included.set_column('A:V',None,generalFormat)
+included.set_column('T:T',None,percentageFormat)
 included.set_column('F:H',None,floatingFormat)
 
-excluded.set_column('A:U',None,generalFormat)
-excluded.set_column('S:S',None,percentageFormat)
+excluded.set_column('A:V',None,generalFormat)
+excluded.set_column('T:T',None,percentageFormat)
 excluded.set_column('F:H',None,floatingFormat)
 
-detailed.set_column('A:Y',None,generalFormat)
-detailed.set_column('T:T',None,percentageFormat)
+detailed.set_column('A:Z',None,generalFormat)
+detailed.set_column('U:U',None,percentageFormat)
 detailed.set_column('G:I',None,floatingFormat)
 
 #Writes the detailed sheet of the workbook
@@ -135,14 +137,14 @@ with open('csv/detailed.csv','r') as f:
       prv=row[N_KEY]
     toWrite = [row[h] for h in EXTENDED_HEADERS]
     #converts from string to int
-    for i in [0,1,9,11,17,18]:
+    for i in [0,1,9,12,18,19]:
       if isint(toWrite[i]):
         toWrite[i]=int(toWrite[i])
     #converts from string to float
     for i in [6,7,8]:
       if isfloat(toWrite[i]):
         toWrite[i]=float(toWrite[i])
-    toWrite[19]=1.0*toWrite[18]/toWrite[17]
+    toWrite[20]=1.0*toWrite[19]/toWrite[18]
     detailed.write_row(n,0,toWrite)
   mergeHelper(start,n,toWrite)
 
@@ -155,14 +157,14 @@ with open('csv/included.csv', 'r') as f:
     row = e[1]
     toWrite = [row[h] for h in LIMITED_HEADERS]
     #converts from string to int
-    for i in [0,8,10,16,17]:
+    for i in [0,8,11,17,18]:
       if isint(toWrite[i]):
         toWrite[i]=int(toWrite[i])
     #converts from string to float
     for i in [5,6,7]:
       if isfloat(toWrite[i]):
         toWrite[i]=float(toWrite[i])
-    toWrite[18]=1.0*toWrite[17]/toWrite[16]
+    toWrite[19]=1.0*toWrite[18]/toWrite[17]
     included.write_row(n,0,toWrite)
   included.add_table(0,0,n,len(LIMITED_HEADERS)-1,
     {'style': 'Table Style Medium 17','columns':[{'header':h} for h in LIMITED_HEADERS]})
@@ -176,14 +178,14 @@ with open('csv/excluded.csv', 'r') as f:
     row = e[1]
     toWrite = [row[h] for h in LIMITED_HEADERS]
     #converts from string to int
-    for i in [0,8,10,16,17]:
+    for i in [0,8,11,17,18]:
       if isint(toWrite[i]):
         toWrite[i]=int(toWrite[i])
     #converts from string to float
     for i in [5,6,7]:
       if isfloat(toWrite[i]):
         toWrite[i]=float(toWrite[i])
-    toWrite[18]=1.0*toWrite[17]/toWrite[16]
+    toWrite[19]=1.0*toWrite[18]/toWrite[17]
     excluded.write_row(n,0,toWrite)
   excluded.add_table(0,0,n,len(LIMITED_HEADERS)-1,
     {'style': 'Table Style Medium 17','columns':[{'header':h} for h in LIMITED_HEADERS]})
