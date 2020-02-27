@@ -44,7 +44,7 @@ The following python dependencies are required:
 
 ## Authors:
 * **Ali Al Hawaj** <ali.alhawaj@hotmail.com> – Medical Student.
-* **Mousa Al Haddad** <mousa.j.alhaddad@gmail.com> – Medical Student.
+* **[Mousa Al Haddad](https://github.com/MousaAlhaddad)** <mousa.j.alhaddad@gmail.com> – Medical Student.
 * **Wael Al Saeed** <wael.h.alsaeed@gmail.com> - Developer.
 
 ## License:
